@@ -1,15 +1,16 @@
 package data;
 
 import java.util.ArrayList;
+import model.Pais;
 
 public class PaisData {
-    private ArrayList<ClienteData> paises = new ArrayList<>();
+    private ArrayList<Pais> paises = new ArrayList<>();
 
-    public ArrayList<ClienteData> getPaises() {
+    public ArrayList<Pais> getPaises() {
         return paises;
     }
 
-    public void setPaises(ArrayList<ClienteData> paises) {
+    public void setPaises(ArrayList<Pais> paises) {
         this.paises = paises;
     }
 }

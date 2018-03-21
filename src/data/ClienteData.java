@@ -1,9 +1,10 @@
 package data;
 
 import java.util.ArrayList;
+import model.Cliente;
 
 public class ClienteData {
-    private ArrayList<ClienteData> clientes = new ArrayList<>();
+    private ArrayList<Cliente> clientes = new ArrayList<>();
     
     public ArrayList<ClienteData> getClientes() {
         return clientes;
