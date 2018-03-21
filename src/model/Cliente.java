@@ -5,13 +5,14 @@ public class Cliente {
     private String nome;
     private String telefone;
     private Pais pais;
-    private String limite_credito;
+    private int limite_credito;
+    private int idade;
 
-    public Cliente(String nome, String telefone, Pais pais, String limite_credito) {
+    public Cliente(String nome, String telefone, int idade, Pais pais) {
         this.nome = nome;
         this.telefone = telefone;
         this.pais = pais;
-        this.limite_credito = limite_credito;
+        this.idade = idade;
     }
     
     public Cliente() {   }
@@ -40,12 +41,22 @@ public class Cliente {
         this.pais = pais;
     }
 
-    public String getLimite_credito() {
+    public int getLimite_credito() {
         return limite_credito;
     }
 
-    public void setLimite_credito(String limite_credito) {
+    public void setLimite_credito(int limite_credito) {
         this.limite_credito = limite_credito;
     }
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    
+    
     
 }

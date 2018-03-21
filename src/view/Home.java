@@ -5,8 +5,8 @@
  */
 package view;
 
-import controler.ClienteControler;
-import controler.PaisControler;
+import controler.ClienteController;
+import controler.PaisController;
 import model.Cliente;
 import model.Pais;
 
@@ -40,7 +40,7 @@ public class Home extends javax.swing.JFrame {
         btnInserirPais = new javax.swing.JButton();
         txtSigla = new javax.swing.JTextField();
         txtTelefone = new javax.swing.JTextField();
-        txtLimite = new javax.swing.JTextField();
+        txtIdade = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -77,7 +77,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel3.setText("Telefone:");
 
-        jLabel4.setText("Limite de Crédito:");
+        jLabel4.setText("Idade:");
 
         jLabel5.setText("País:");
 
@@ -96,7 +96,6 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(btnInserirCliente)
                         .addGap(134, 134, 134))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(labelErroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)
                         .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -107,17 +106,20 @@ public class Home extends javax.swing.JFrame {
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtLimite, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelErroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNomePais, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(labelErroPais, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnInserirPais, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNomePais, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6)
+                            .addComponent(btnInserirPais))
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(labelErroPais, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,21 +142,21 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtLimite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInserirPais))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(labelErroPais, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInserirPais))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(labelErroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)))
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(labelErroPais, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelErroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btnInserirCliente)
                 .addContainerGap())
@@ -170,16 +172,16 @@ public class Home extends javax.swing.JFrame {
     private void btnInserirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirClienteActionPerformed
         // TODO add your handling code here:
         Cliente cliente = 
-                new Cliente(txtNomeCliente.getText(), txtTelefone.getText(), txtLimite.getText(), new Pais());
+                new Cliente(txtNomeCliente.getText(), txtTelefone.getText(), Integer.parseInt(txtIdade.getText()), new Pais("Teste2", "tt2"));
         
-        ClienteControler cc = new ClienteControler();
+        ClienteController cc = new ClienteController();
         
         String msg = cc.cadastrar(cliente);
         
         if(msg.equals("Sucesso")) {
             txtNomeCliente.setText("");
             txtTelefone.setText("");
-            txtLimite.setText("");
+            txtIdade.setText("");
         }
         
         labelErroCliente.setText(msg);
@@ -190,7 +192,7 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         Pais pais = new Pais(txtNomePais.getText(), txtSigla.getText());
         
-        PaisControler pc = new PaisControler();
+        PaisController pc = new PaisController();
         
         String msg = pc.cadastrar(pais);
         
@@ -250,7 +252,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel labelErroCliente;
     private javax.swing.JLabel labelErroPais;
-    private javax.swing.JTextField txtLimite;
+    private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtNomeCliente;
     private javax.swing.JTextField txtNomePais;
     private javax.swing.JTextField txtSigla;

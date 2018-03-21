@@ -3,7 +3,7 @@ package controler;
 import data.PaisData;
 import model.Pais;
 
-public class PaisControler {
+public class PaisController {
 
     PaisData paises = new PaisData();
     
