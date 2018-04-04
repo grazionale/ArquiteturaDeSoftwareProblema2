@@ -30,8 +30,14 @@ public class Cliente {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNome(String nome) throws Exception {
+        if (nome.length() < 5) {
+            throw new Exception("Nome não pode conter menos de 5 caracteres");
+        } else {
+            this.nome = nome;
+        }
+        
+        
     }
 
     public String getTelefone() {
@@ -51,11 +57,25 @@ public class Cliente {
     }
 
     public int getLimite_credito() {
+        
+        
+        
+        
         return limite_credito;
     }
 
     public void setLimite_credito(int limite_credito) {
-        this.limite_credito = limite_credito;
+        if (getIdade() <= 18) {
+                this.limite_credito = 100;
+            } else if (getIdade() <= 35) {
+                this.limite_credito = 300;
+            } else {
+                this.limite_credito = 500;
+            }
+        
+        if (getPais().getSigla().equals("BR")) {
+                this.limite_credito += 100;
+            }
     }
 
     public int getIdade() {

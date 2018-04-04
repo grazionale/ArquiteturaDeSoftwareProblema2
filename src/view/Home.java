@@ -2,11 +2,14 @@ package view;
 
 import controler.ClienteController;
 import controler.PaisController;
+import javax.swing.JOptionPane;
 import model.Cliente;
 import model.Pais;
 
 public class Home extends javax.swing.JFrame {
 
+    private PaisController pc = new PaisController();
+    private ClienteController cc = new ClienteController();
 
     public Home() {
         initComponents();
@@ -160,38 +163,41 @@ public class Home extends javax.swing.JFrame {
 
     private void btnInserirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirClienteActionPerformed
         // TODO add your handling code here:
-        Cliente cliente = 
-                new Cliente(txtNomeCliente.getText(), txtTelefone.getText(), Integer.parseInt(txtIdade.getText()), new Pais("Teste2", "tt2"));
-        
-        ClienteController cc = new ClienteController();
-        
-        String msg = cc.cadastrar(cliente);
-        
-        if(msg.equals("Sucesso")) {
-            txtNomeCliente.setText("");
-            txtTelefone.setText("");
-            txtIdade.setText("");
+        Cliente cliente = new Cliente();
+                
+        try {
+            cliente.setNome(txtNomeCliente.getText());
+            cliente.setTelefone(txtTelefone.getText());
+            cliente.setIdade(Integer.parseInt(txtIdade.getText()));
+            cliente.setPais(new Pais());
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(this, e.getMessage());
+            return;
         }
+        cc.cadastrar(cliente);
         
-        labelErroCliente.setText(msg);
-        
+        txtNomeCliente.setText("");
+        txtTelefone.setText("");
+        txtIdade.setText("");        
+           
     }//GEN-LAST:event_btnInserirClienteActionPerformed
 
     private void btnInserirPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirPaisActionPerformed
         // TODO add your handling code here:
-        Pais pais = new Pais(txtNomePais.getText(), txtSigla.getText());
-        
-        PaisController pc = new PaisController();
-        
-        String msg = pc.cadastrar(pais);
-        
-        if(msg.equals("Sucesso")) {
-            txtNomePais.setText("");
-            txtSigla.setText("");
+        Pais pais = new Pais();
+        //txtNomePais.getText(), txtSigla.getText()
+        try {
+            pais.setNome(txtNomePais.getText());
+            pais.setSigla(txtSigla.getText());
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(this, e.getMessage());
+            return;
         }
+        pc.cadastrar(pais);
         
-        labelErroPais.setText(msg);
-        
+        txtNomePais.setText("");
+        txtSigla.setText("");
+                
     }//GEN-LAST:event_btnInserirPaisActionPerformed
 
     /**

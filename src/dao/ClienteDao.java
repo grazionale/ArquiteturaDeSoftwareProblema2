@@ -7,6 +7,7 @@ package dao;
 
 import data.ClienteData;
 import java.util.List;
+import java.util.Set;
 import model.Cliente;
 
 /**
@@ -21,12 +22,16 @@ public class ClienteDao {
     }
 
     public void alterar(Cliente cliente, int id) { 
-        for(int i = 0 ; i < clientedata.getClientes().size() ; i++){
-            if(clientedata.getClientes().get(i).getId() == id) {
-                clientedata.getClientes().set(i, cliente);
+        
+        for(Cliente clienteArray : clientedata.getClientes()){
+            if(clienteArray.getId() == id){
+                clienteArray.setId(id);
+                clientedata.getClientes().add(clienteArray);
             }
         }
+        
     }
+
 
     public void deletar(int id) {
         for(Cliente cliente : clientedata.getClientes()){
@@ -45,7 +50,7 @@ public class ClienteDao {
         return null;
     }
 
-    public List<Cliente> lerTodos() {
+    public Set<Cliente> lerTodos() {
          return clientedata.getClientes();
     }
 }
