@@ -1,16 +1,17 @@
 package data;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import model.Pais;
 
 public class PaisData {
-    private ArrayList<Pais> paises = new ArrayList<>();
+    private Set<Pais> paises = new HashSet<>();
 
-    public ArrayList<Pais> getPaises() {
+    public Set<Pais> getPaises() {
         return paises;
     }
 
-    public void setPaises(ArrayList<Pais> paises) {
+    public void setPaises(Set<Pais> paises) {
         this.paises = paises;
     }
 }

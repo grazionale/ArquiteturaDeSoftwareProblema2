@@ -7,6 +7,7 @@ public class Cliente {
     private Pais pais;
     private int limite_credito;
     private int idade;
+    private int id;
 
     public Cliente(String nome, String telefone, int idade, Pais pais) {
         this.nome = nome;
@@ -16,6 +17,14 @@ public class Cliente {
     }
     
     public Cliente() {   }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
     public String getNome() {
         return nome;
