@@ -1,15 +1,20 @@
 package controler;
 
 import dao.PaisDao;
-import java.util.Set;
+import java.util.ArrayList;
 import model.Pais;
 
 public class PaisController {
 
     private PaisDao paisDao;
     
+    public PaisController() {
+        paisDao = new PaisDao();
+    }
+    
     public void cadastrar(Pais pais) {   
-        paisDao.criar(pais); 
+        //paisDao.criar(pais); 
+        paisDao.ler(2); 
     }    
     
     public void alterar(Pais pais, int id) {   
@@ -24,7 +29,7 @@ public class PaisController {
         return paisDao.ler(id); 
     } 
     
-    public Set<Pais> lerTodos() {
+    public ArrayList<Pais> lerTodos() {
         return paisDao.lerTodos();
     }
     

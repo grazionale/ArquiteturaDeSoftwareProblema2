@@ -1,22 +1,20 @@
 package dao;
 
-import data.PaisData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.util.Set;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import model.Pais;
 import util.Conexao;
 
 public class PaisDao {
 
-    private PaisData paisdata;
     private final Connection con;
     private PreparedStatement pst;
     
     public PaisDao() {
         this.con = new Conexao().Conector();
     }
-    
     
     public void criar(Pais pais) {
         String sql = "insert into pais (sigla, nome) values (?,?);";
@@ -71,16 +69,60 @@ public class PaisDao {
     }
 
     public Pais ler(int id) {
-        for (Pais paisArray : paisdata.getPaises()) {
-            if (paisArray.getId() == id) {
-                return paisArray;
-            } 
-        }
-        return null;
+        String sql = "select * from pais where id = ?";
+
+        try {
+            ArrayList<Pais> paises = new ArrayList<>();
+            PreparedStatement pst = this.con.prepareStatement(sql);
+            pst.setInt(1, id);
+            
+            ResultSet rs = pst.executeQuery();
+            Pais p = new Pais();
+            while(rs.next()){
+                p.setId(rs.getInt("id"));
+                p.setSigla(rs.getString("sigla"));
+                p.setNome(rs.getString("nome"));  
+            }
+            
+            System.out.println(p.getId());
+            System.out.println(p.getNome());
+            System.out.println(p.getSigla());
+            
+            rs.close();
+            pst.close();
+            
+            return p;
+        } catch (Exception e) {
+            System.err.println("\n " + e.getCause());
+            System.err.println("\n " + e.getMessage());
+            throw new RuntimeException(e);              
+        }   
     }
 
-    public Set<Pais> lerTodos() {
-         return paisdata.getPaises();
+    public ArrayList<Pais> lerTodos() {
+         String sql = "select * from pais";
+
+        try {
+            ArrayList<Pais> paises = new ArrayList<>();
+            PreparedStatement pst = this.con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()){
+                Pais p = new Pais();
+                p.setId(rs.getInt("id"));
+                p.setSigla(rs.getString("sigla"));
+                p.setNome(rs.getString("nome"));  
+                paises.add(p);
+            }
+            rs.close();
+            pst.close();
+            
+            return paises;
+        } catch (Exception e) {
+            System.err.println("\n " + e.getCause());
+            System.err.println("\n " + e.getMessage());
+            throw new RuntimeException(e);              
+        }   
     }
     
 }
