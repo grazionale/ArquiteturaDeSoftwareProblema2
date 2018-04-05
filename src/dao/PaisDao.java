@@ -1,7 +1,6 @@
 package dao;
 
 import data.PaisData;
-import java.util.List;
 import java.util.Set;
 import model.Pais;
 
