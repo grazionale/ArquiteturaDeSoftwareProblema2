@@ -1,7 +1,6 @@
 package controler;
 
 import dao.ClienteDao;
-import data.ClienteData;
 import java.util.Set;
 import model.Cliente;
 
