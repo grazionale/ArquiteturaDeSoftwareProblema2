@@ -72,21 +72,19 @@ public class PaisDao {
         String sql = "select * from pais where id = ?";
 
         try {
-            ArrayList<Pais> paises = new ArrayList<>();
             PreparedStatement pst = this.con.prepareStatement(sql);
             pst.setInt(1, id);
             
             ResultSet rs = pst.executeQuery();
             Pais p = new Pais();
-            while(rs.next()){
-                p.setId(rs.getInt("id"));
-                p.setSigla(rs.getString("sigla"));
-                p.setNome(rs.getString("nome"));  
+            
+            if(!rs.next()){
+                System.out.println("Não achou");
             }
             
-            System.out.println(p.getId());
-            System.out.println(p.getNome());
-            System.out.println(p.getSigla());
+            p.setId(rs.getInt("id"));
+            p.setSigla(rs.getString("sigla"));
+            p.setNome(rs.getString("nome")); 
             
             rs.close();
             pst.close();
@@ -97,6 +95,7 @@ public class PaisDao {
             System.err.println("\n " + e.getMessage());
             throw new RuntimeException(e);              
         }   
+        
     }
 
     public ArrayList<Pais> lerTodos() {

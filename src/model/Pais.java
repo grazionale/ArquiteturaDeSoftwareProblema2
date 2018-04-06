@@ -43,7 +43,7 @@ public class Pais {
 
     public void setSigla(String sigla) throws Exception {
         
-        if(!nome.isEmpty()) {
+        if(!sigla.isEmpty()) {
             this.sigla = sigla;
         } else {
             throw new Exception("Sigla não pode ser vazia");

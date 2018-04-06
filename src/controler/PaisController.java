@@ -13,8 +13,7 @@ public class PaisController {
     }
     
     public void cadastrar(Pais pais) {   
-        //paisDao.criar(pais); 
-        paisDao.ler(2); 
+        paisDao.criar(pais); 
     }    
     
     public void alterar(Pais pais, int id) {   
