@@ -1,12 +1,16 @@
 package controler;
 
 import dao.ClienteDao;
-import java.util.Set;
+import java.util.ArrayList;
 import model.Cliente;
 
 public class ClienteController {
 
     private ClienteDao clienteDao;
+    
+    public ClienteController() {
+        clienteDao = new ClienteDao();
+    } 
     
     public void cadastrar(Cliente cliente) {   
         clienteDao.criar(cliente); 
@@ -24,7 +28,7 @@ public class ClienteController {
         return clienteDao.ler(id); 
     } 
     
-    public Set<Cliente> lerTodos() {
+    public ArrayList<Cliente> lerTodos() {
         return clienteDao.lerTodos();
     }    
 }

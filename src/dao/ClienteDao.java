@@ -1,11 +1,9 @@
 package dao;
 
-import data.ClienteData;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.List;
-import java.util.Set;
+import java.util.ArrayList;
 import model.Cliente;
 import util.Conexao;
 
@@ -76,7 +74,10 @@ public class ClienteDao {
     }
 
     public Cliente ler(int id) {
-        String sql = "select * from cliente inner join pais on cliente.ippais = pais.id where id = ?";
+        String sql = "SELECT c.id AS c_id, c.nome AS c_nome, c.telefone AS c_telefone, c.limite_credito AS c_limite_credito, c.idade AS c_idade, " +
+                        "p.id AS p_id, p.nome AS p_nome, p.sigla AS p_sigla " +
+                        "FROM cliente AS c INNER JOIN pais AS p ON c.idPais = p.id " +
+                        "WHERE c.id = ?";
 
         try {
             PreparedStatement pst = this.con.prepareStatement(sql);
@@ -84,20 +85,20 @@ public class ClienteDao {
             
             ResultSet rs = pst.executeQuery();
             Cliente c = new Cliente();
-            
+                        
             if(!rs.next()){
                 System.out.println("Não achou");
             }
-            
-            c.setId(rs.getInt("cliente_id"));
-            c.setNome(rs.getString("cliente_nome"));
-            c.setTelefone(rs.getString("cliente_telefone")); 
-            c.setIdade(rs.getInt("cliente_idade")); 
-            c.setLimite_credito(rs.getInt("cliente_limite_credito")); 
-            c.getPais().setId(rs.getInt("pais_id")); 
-            c.getPais().setNome(rs.getString("pais_nome")); 
-            c.getPais().setSigla(rs.getString("pais_sigla")); 
-            
+                                    
+            c.setId(rs.getInt("c_id"));
+            c.setNome(rs.getString("c_nome"));
+            c.setTelefone(rs.getString("c_telefone")); 
+            c.setIdade(rs.getInt("c_idade"));  
+            c.getPais().setId(rs.getInt("p_id")); 
+            c.getPais().setNome(rs.getString("p_nome")); 
+            c.getPais().setSigla(rs.getString("p_sigla")); 
+            c.setLimite_credito(rs.getInt("c_limite_credito"));
+                        
             rs.close();
             pst.close();
             
@@ -110,25 +111,32 @@ public class ClienteDao {
         
     }
 
-    public ArrayList<Pais> lerTodos() {
-         String sql = "select * from pais";
+    public ArrayList<Cliente> lerTodos() {
+         String sql = "SELECT c.id AS c_id, c.nome AS c_nome, c.telefone AS c_telefone, c.limite_credito AS c_limite_credito, c.idade AS c_idade, " +
+                        "p.id AS p_id, p.nome AS p_nome, p.sigla AS p_sigla " +
+                        "FROM cliente AS c INNER JOIN pais AS p ON c.idPais = p.id";
 
         try {
-            ArrayList<Pais> paises = new ArrayList<>();
+            ArrayList<Cliente> clientes = new ArrayList<>();
             PreparedStatement pst = this.con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
             
             while(rs.next()){
-                Pais p = new Pais();
-                p.setId(rs.getInt("id"));
-                p.setSigla(rs.getString("sigla"));
-                p.setNome(rs.getString("nome"));  
-                paises.add(p);
+                Cliente c = new Cliente();
+                c.setId(rs.getInt("c_id"));
+                c.setNome(rs.getString("c_nome"));
+                c.setTelefone(rs.getString("c_telefone")); 
+                c.setIdade(rs.getInt("c_idade"));  
+                c.getPais().setId(rs.getInt("p_id")); 
+                c.getPais().setNome(rs.getString("p_nome")); 
+                c.getPais().setSigla(rs.getString("p_sigla")); 
+                c.setLimite_credito(rs.getInt("c_limite_credito"));
+                clientes.add(c);
             }
             rs.close();
             pst.close();
             
-            return paises;
+            return clientes;
         } catch (Exception e) {
             System.err.println("\n " + e.getCause());
             System.err.println("\n " + e.getMessage());
