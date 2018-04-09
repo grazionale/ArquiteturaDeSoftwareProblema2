@@ -16,7 +16,9 @@ public class Cliente {
         this.idade = idade;
     }
     
-    public Cliente() {   }
+    public Cliente() { 
+        this.pais = new Pais();
+    }
 
     public int getId() {
         return id;
@@ -35,9 +37,7 @@ public class Cliente {
             throw new Exception("Nome não pode conter menos de 5 caracteres");
         } else {
             this.nome = nome;
-        }
-        
-        
+        }        
     }
 
     public String getTelefone() {
@@ -57,25 +57,23 @@ public class Cliente {
     }
 
     public int getLimite_credito() {
-        
-        
-        
-        
         return limite_credito;
     }
 
     public void setLimite_credito(int limite_credito) {
+                
         if (getIdade() <= 18) {
-                this.limite_credito = 100;
-            } else if (getIdade() <= 35) {
-                this.limite_credito = 300;
-            } else {
-                this.limite_credito = 500;
-            }
+            this.limite_credito = 100;
+        } else if (getIdade() <= 35) {
+            this.limite_credito = 300;
+        } else {
+            this.limite_credito = 500;
+        }
         
-        if (getPais().getSigla().equals("BR")) {
-                this.limite_credito += 100;
-            }
+        if (getPais() != null && getPais().getSigla()!= null && getPais().getSigla().equals("BR")) {
+            this.limite_credito += 100;
+        }
+        
     }
 
     public int getIdade() {
@@ -86,6 +84,9 @@ public class Cliente {
         this.idade = idade;
     }
     
-    
+     @Override
+    public String toString() {
+        return "Cliente{" + "nome=" + nome + ", telefone=" + telefone + ", pais=" + pais + ", limite_credito=" + limite_credito + ", idade=" + idade + ", id=" + id + '}';
+    }
     
 }
