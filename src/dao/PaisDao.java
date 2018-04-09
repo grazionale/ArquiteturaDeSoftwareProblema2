@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Pais;
 import util.Conexao;
 
@@ -26,9 +27,11 @@ public class PaisDao {
            
             pst.execute();
             pst.close();
+            JOptionPane.showMessageDialog(null, "País cadastrado com sucesso!");
         } catch (Exception e) {
             System.err.println("\nCAUSA: " + e.getCause());
             System.err.println("\nMENSAGEM " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar país");
             throw new RuntimeException(e);              
         }
     }
@@ -42,12 +45,14 @@ public class PaisDao {
             pst.setString(1, pais.getSigla());
             pst.setString(2, pais.getNome());
             pst.setInt(3, id);
-
+            
             pst.execute();
             pst.close();
+            JOptionPane.showMessageDialog(null, "País alterado com sucesso!");
         } catch (Exception e) {
             System.err.println("\nCAUSA: " + e.getCause());
             System.err.println("\nMENSAGEM " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao alterar país!");
             throw new RuntimeException(e);              
         }
         
@@ -61,9 +66,11 @@ public class PaisDao {
 
             pst.execute();
             pst.close();
+            JOptionPane.showMessageDialog(null, "País excluido com sucesso!");
         } catch (Exception e) {
             System.err.println("\nCAUSA: " + e.getCause());
             System.err.println("\nMENSAGEM " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao excluir país!");
             throw new RuntimeException(e);              
         }        
     }

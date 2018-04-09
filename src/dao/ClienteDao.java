@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import model.Cliente;
 import util.Conexao;
 
@@ -16,7 +17,7 @@ public class ClienteDao {
     }
     
     public void criar(Cliente cliente) {
-        String sql = "insert into cliente (nome, telefone, limite_credito, idade, idPais) values (?,?, ?, ?, ?);";
+        String sql = "insert into cliente (nome, telefone,idade, limite_credito, idPais) values (?,?, ?, ?, ?);";
 
         try {
             PreparedStatement pst = this.con.prepareStatement(sql);
@@ -28,16 +29,18 @@ public class ClienteDao {
            
             pst.execute();
             pst.close();
+            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
         } catch (Exception e) {
             System.err.println("\nCAUSA: " + e.getCause());
             System.err.println("\nMENSAGEM " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar cliente!");
             throw new RuntimeException(e);              
         }
     }
 
     public void alterar(Cliente cliente, int id) { 
         
-        String sql = "update cliente set nome = ?, telefone = ?, idade = ?, limite_credito = ?"
+        String sql = "update cliente set nome = ?, telefone = ?, idade = ?, limite_credito = ?, "
                 + " idPais = ? where id = ?;";
         
         try {
@@ -47,12 +50,15 @@ public class ClienteDao {
             pst.setInt(3, cliente.getIdade());
             pst.setInt(4, cliente.getLimite_credito());
             pst.setInt(5, cliente.getPais().getId());
+            pst.setInt(6, id);
             
             pst.execute();
             pst.close();
+            JOptionPane.showMessageDialog(null, "Cliente alterado com sucesso!");
         } catch (Exception e) {
             System.err.println("\nCAUSA: " + e.getCause());
             System.err.println("\nMENSAGEM " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao alterar cliente!");
             throw new RuntimeException(e);              
         }
         
@@ -66,9 +72,11 @@ public class ClienteDao {
 
             pst.execute();
             pst.close();
+            JOptionPane.showMessageDialog(null, "Cliente excluido com sucesso!");
         } catch (Exception e) {
             System.err.println("\nCAUSA: " + e.getCause());
             System.err.println("\nMENSAGEM " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao excluir cliente!");
             throw new RuntimeException(e);              
         }        
     }
@@ -143,4 +151,6 @@ public class ClienteDao {
             throw new RuntimeException(e);              
         }   
     }
+    
+  
 }

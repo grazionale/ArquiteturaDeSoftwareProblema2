@@ -9,7 +9,7 @@ public class Conexao {
         String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost/aqtsoft?autoReconnect=true&useSSL=false";
         String user = "root";
-        String password = "root";
+        String password = "";
         try {
             Class.forName(driver);
             conexao = DriverManager.getConnection(url, user, password);

@@ -75,6 +75,11 @@ public class Pais {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Pais{" + "nome=" + nome + ", sigla=" + sigla + ", id=" + id + '}';
+    }
     
     
 }

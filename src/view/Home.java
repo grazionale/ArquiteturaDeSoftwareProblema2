@@ -24,181 +24,132 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNomeCliente = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtNomePais = new javax.swing.JTextField();
-        btnInserirCliente = new javax.swing.JButton();
-        btnInserirPais = new javax.swing.JButton();
-        txtSigla = new javax.swing.JTextField();
-        txtTelefone = new javax.swing.JTextField();
-        txtIdade = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
         labelErroPais = new javax.swing.JLabel();
         labelErroCliente = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jbCadastrarCliente = new javax.swing.JMenuItem();
+        jbExcluirCliente = new javax.swing.JMenuItem();
+        jbAlterarCliente = new javax.swing.JMenuItem();
+        jbVisualizarUmCliente = new javax.swing.JMenuItem();
+        jbVisualizarTodosClientes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Nome do Cliente");
-
-        jLabel2.setText("País");
-
-        txtNomePais.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Países");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNomePaisActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        btnInserirCliente.setText("Inserir");
-        btnInserirCliente.addActionListener(new java.awt.event.ActionListener() {
+        jMenu1.setText("Clientes");
+
+        jbCadastrarCliente.setText("Cadastrar");
+        jbCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInserirClienteActionPerformed(evt);
+                jbCadastrarClienteActionPerformed(evt);
             }
         });
+        jMenu1.add(jbCadastrarCliente);
 
-        btnInserirPais.setText("Inserir");
-        btnInserirPais.addActionListener(new java.awt.event.ActionListener() {
+        jbExcluirCliente.setText("Excluir");
+        jbExcluirCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInserirPaisActionPerformed(evt);
+                jbExcluirClienteActionPerformed(evt);
             }
         });
+        jMenu1.add(jbExcluirCliente);
 
-        jLabel3.setText("Telefone:");
+        jbAlterarCliente.setText("Alterar");
+        jbAlterarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAlterarClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jbAlterarCliente);
 
-        jLabel4.setText("Idade:");
+        jbVisualizarUmCliente.setText("Visualizar um Cliente");
+        jbVisualizarUmCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVisualizarUmClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jbVisualizarUmCliente);
 
-        jLabel5.setText("País:");
+        jbVisualizarTodosClientes.setText("Visualizar todos Clientes");
+        jbVisualizarTodosClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbVisualizarTodosClientesActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jbVisualizarTodosClientes);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jMenuBar1.add(jMenu1);
 
-        jLabel6.setText("Sigla:");
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnInserirCliente)
-                        .addGap(134, 134, 134))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(txtIdade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(labelErroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNomePais, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(btnInserirPais))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(labelErroPais, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))))
+                        .addGap(26, 26, 26)
+                        .addComponent(labelErroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelErroPais, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNomeCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNomePais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSigla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnInserirPais))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(labelErroPais, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(labelErroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(btnInserirCliente)
-                .addContainerGap())
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addGap(133, 133, 133)
+                .addComponent(labelErroPais, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(labelErroCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 4, Short.MAX_VALUE)
+                .addGap(52, 52, 52))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomePaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomePaisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNomePaisActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        TelaPais tp = new TelaPais();
+        tp.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void btnInserirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirClienteActionPerformed
-        // TODO add your handling code here:
-        Cliente cliente = new Cliente();
-                
-        try {
-            cliente.setNome(txtNomeCliente.getText());
-            cliente.setTelefone(txtTelefone.getText());
-            cliente.setIdade(Integer.parseInt(txtIdade.getText()));
-            cliente.setPais(new Pais());
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(this, e.getMessage());
-            return;
-        }
-        cc.cadastrar(cliente);
-        
-        txtNomeCliente.setText("");
-        txtTelefone.setText("");
-        txtIdade.setText("");        
-           
-    }//GEN-LAST:event_btnInserirClienteActionPerformed
+    private void jbCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCadastrarClienteActionPerformed
+        TelaCadastrarCliente tcc = new TelaCadastrarCliente();
+        tcc.setVisible(true);
+    }//GEN-LAST:event_jbCadastrarClienteActionPerformed
 
-    private void btnInserirPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInserirPaisActionPerformed
-        // TODO add your handling code here:
-        Pais pais = new Pais();
-        //txtNomePais.getText(), txtSigla.getText()
-        try {
-            pais.setNome(txtNomePais.getText());
-            pais.setSigla(txtSigla.getText());
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(this, e.getMessage());
-            return;
-        }
-        pc.cadastrar(pais);
+    private void jbExcluirClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirClienteActionPerformed
+        TelaExcluirCliente tex = new TelaExcluirCliente();
         
-        txtNomePais.setText("");
-        txtSigla.setText("");
-                
-    }//GEN-LAST:event_btnInserirPaisActionPerformed
+        tex.setVisible(true);
+    }//GEN-LAST:event_jbExcluirClienteActionPerformed
+
+    private void jbVisualizarUmClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVisualizarUmClienteActionPerformed
+        TelaVisualizarCliente vc = new TelaVisualizarCliente();
+        vc.setVisible(true);
+    }//GEN-LAST:event_jbVisualizarUmClienteActionPerformed
+
+    private void jbVisualizarTodosClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVisualizarTodosClientesActionPerformed
+        TelaVisualizarTodosClientes vtc = new TelaVisualizarTodosClientes();
+        vtc.setVisible(true);
+    }//GEN-LAST:event_jbVisualizarTodosClientesActionPerformed
+
+    private void jbAlterarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAlterarClienteActionPerformed
+        TelaAlterarCliente ac = new TelaAlterarCliente();
+        ac.setVisible(true);
+    }//GEN-LAST:event_jbAlterarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,21 +187,15 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnInserirCliente;
-    private javax.swing.JButton btnInserirPais;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jbAlterarCliente;
+    private javax.swing.JMenuItem jbCadastrarCliente;
+    private javax.swing.JMenuItem jbExcluirCliente;
+    private javax.swing.JMenuItem jbVisualizarTodosClientes;
+    private javax.swing.JMenuItem jbVisualizarUmCliente;
     private javax.swing.JLabel labelErroCliente;
     private javax.swing.JLabel labelErroPais;
-    private javax.swing.JTextField txtIdade;
-    private javax.swing.JTextField txtNomeCliente;
-    private javax.swing.JTextField txtNomePais;
-    private javax.swing.JTextField txtSigla;
-    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
